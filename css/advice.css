@@ -1,0 +1,160 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: hsl(218, 23%, 16%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .advice-card {
+            background-color: hsl(217, 19%, 24%);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        #adviceId {
+            color: hsl(150, 100%, 66%);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: clamp(0.7rem, 2vw, 0.8rem);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: slideDown 0.5s ease-out 0.2s forwards;
+        }
+
+        #adviceText {
+            color: hsl(193, 38%, 86%);
+            font-size: clamp(18px, 3vw, 28px);
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 0.5s ease-out 0.4s forwards;
+        }
+
+        .divider {
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out 0.6s forwards;
+        }
+
+        .divide {
+            width: 100%;
+            height: auto;
+            max-height: 16px;
+        }
+
+        #newAdviceBtn {
+            background-color: hsl(150, 100%, 66%);
+            border: none;
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -32px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #newAdviceBtn:hover {
+            box-shadow: 0 0 30px hsl(150, 100%, 66%);
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        #newAdviceBtn:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+
+        .dice-button {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        #newAdviceBtn:hover .dice-button {
+            animation: spin 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                max-width: 100%;
+            }
+
+            .advice-card {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            #newAdviceBtn {
+                width: 56px;
+                height: 56px;
+                bottom: -28px;
+            }
+
+            .dice-button {
+                width: 20px;
+                height: 20px;
+            }
+        }
